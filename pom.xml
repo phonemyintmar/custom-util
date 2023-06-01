@@ -2,6 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<modules>
+		<module>network-util</module>
+		<module>string-util</module>
+		<module>database-util</module>
+		<module>mail-util</module>
+		<module>io-util</module>
+		<module>common-util</module>
+	</modules>
+
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -10,7 +21,7 @@
 	</parent>
 	<groupId>com.pm</groupId>
 	<artifactId>custom-utils</artifactId>
-	<version>0.0.1-SNAPSHOT</version> <!-- make it release after -->
+	<version>0.0.4</version> <!-- make it release after -->
 	<name>custom-utils</name>
 	<description>Custom Util</description>
 	<properties>
@@ -40,35 +51,22 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>none</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+
 
 	<distributionManagement>
 		<repository>
 			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/phonemyintmar/util</url>
+			<name>custom-util</name>
+			<url>https://maven.pkg.github.com/phonemyintmar/custom-util</url>
 		</repository>
+<!--		ae lo myo snapshot so pee takhu tin htr loh ll ya -->
+<!--		<snapshotRepository>-->
+<!--			<id>nexus-snapshots</id>-->
+<!--			<name>maven-snapshots</name>-->
+<!--			<url>https://maven.pkg.github.com/phonemyintmar/custom-util-snapshots</url>-->
+<!--		</snapshotRepository>-->
 	</distributionManagement>
+
 
 
 </project>
