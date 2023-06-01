@@ -8,7 +8,6 @@
 		<module>string-util</module>
 		<module>database-util</module>
 		<module>mail-util</module>
-		<module>io-util</module>
 		<module>common-util</module>
 	</modules>
 
