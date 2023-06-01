@@ -20,7 +20,7 @@
 	</parent>
 	<groupId>com.pm</groupId>
 	<artifactId>custom-utils</artifactId>
-	<version>0.0.3</version> <!-- make it release after -->
+	<version>0.0.4.1</version> <!-- make it release after -->
 	<name>custom-utils</name>
 	<description>Custom Util</description>
 	<properties>
