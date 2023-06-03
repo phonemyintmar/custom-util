@@ -2,7 +2,7 @@ name: Push and add to package
 
 on:
   push:
-    branches: [master]
+    branches: [ma build nae ohn]
 
 jobs:
   build:
