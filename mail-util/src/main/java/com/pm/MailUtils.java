@@ -1,8 +1,10 @@
 package com.pm;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 /**
  * @author PM
@@ -10,12 +12,34 @@ import org.springframework.stereotype.Component;
  * <p>
  * created by sayr G
  */
-@Component
+@Slf4j
 public class MailUtils {
-    private final JavaMailSender mailSender;
 
-    public MailUtils(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
+    private final Environment environment;
+
+    @Value("${pm.mail.utils.email.host}")
+    private String host;
+
+    @Value("${pm.mail.utils.email.port}")
+    private int port;
+
+    @Value("${pm.mail.utils.email.username}")
+    private String username;
+
+    @Value("${pm.mail.utils.email.password}")
+    private String password;
+
+    public MailUtils(Environment environment) {
+        this.environment = environment;
+    }
+
+    private JavaMailSenderImpl javaMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost(environment.getProperty("name.test"));
+        mailSender.setPort(port);
+        mailSender.setUsername(username);
+        mailSender.setPassword(password);
+        return mailSender;
     }
 
     public void sendEmail(String recipient, String subject, String content) {
@@ -25,14 +49,6 @@ public class MailUtils {
         message.setSubject(subject);
         message.setText(content);
 
-        try {
-            System.out.println(mailSender.getClass().getField("port").get(mailSender));
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-
-//      mailSender.send(message);
+        log.info("mail sender host {}", javaMailSender().getHost());
     }
-
-
 }
