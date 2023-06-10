@@ -9,7 +9,8 @@
 		<module>database-util</module>
 		<module>mail-util</module>
 		<module>common-util</module>
-	</modules>
+        <module>response-util</module>
+    </modules>
 
 
 	<parent>
